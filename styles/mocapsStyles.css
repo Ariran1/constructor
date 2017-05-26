@@ -1,0 +1,450 @@
+
+.mocapContainer {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	overflow: hidden;
+}
+
+.mocapContainer > img {
+    position: relative;
+    z-index: 1;
+    max-width:380px;
+}
+@media screen and (max-width: 1200px) {
+    .mocapContainer > img {
+        max-width:300px;
+    }
+}
+.mocapContainer__imageContainer {
+	z-index: 0;
+}
+.mocapContainer__textContainer {
+	position: absolute;
+	width: 100%;
+	top:30%;
+	z-index: 1;
+}
+
+.printConfig__preview .mocapContainer__textContainer {
+	font-size: 4.75em;
+}
+
+@media screen and (max-width: 1200px) {
+.printConfig__preview .mocapContainer__textContainer {
+	font-size: 3.75em;
+}
+}
+.mocapContainer__textContainer > *{
+	display: block;
+	margin: auto;
+	min-height: 1em;
+}
+
+
+/**/
+[data-mocap-number="13"] {
+	text-align: center;
+	color: #fff;
+	font-size: 5px;
+}
+[data-mocap-number="13"] .mocapContainer__textContainer {
+	opacity: .85;
+	font-family: 'campus';
+}
+[data-mocap-number="13"] .mocapContainer__textContainer,
+.men[data-mocap-number="13"] .mocapContainer__textContainer {
+	top: 22%;
+	padding-left: 4%;
+	box-sizing: border-box;
+}
+.woman[data-mocap-number="13"] .mocapContainer__textContainer {
+    top: 26%;
+	padding-left: 4%;
+}
+.sweatshirt[data-mocap-number="13"] .mocapContainer__textContainer {
+    top: 25%;
+	padding-left: 2%;
+}
+.hoody[data-mocap-number="13"] .mocapContainer__textContainer {
+    top: 26%;
+    padding-left: 1%;
+}
+
+[data-mocap-number="13"] .mocapContainer__textContainer span {
+	line-height: 1;
+}
+[data-mocap-number="13"] .printConfig__text2{
+	font-weight: 700;
+	font-size: 4.5em;
+	padding-top: .5em;
+	font-family: 'campusGrav';
+}
+.woman[data-mocap-number="13"] .printConfig__text2{
+	padding-top: .44em;
+}
+.sweatshirt[data-mocap-number="13"] .printConfig__text2{
+	padding-top: .38em;
+}
+
+/**/
+[data-mocap-number="14"] {
+	text-align: center;
+	color: #000;
+	font-size: 5px;
+}
+[data-mocap-number="14"] .mocapContainer__textContainer {
+	opacity: .85;
+	font-family: 'campus';
+}
+[data-mocap-number="14"] .mocapContainer__textContainer,
+.men[data-mocap-number="14"] .mocapContainer__textContainer {
+	top: 22%;
+	padding-left: 4%;
+	box-sizing: border-box;
+}
+.woman[data-mocap-number="14"] .mocapContainer__textContainer {
+    top: 26%;
+	padding-left: 4%;
+}
+.sweatshirt[data-mocap-number="14"] .mocapContainer__textContainer {
+    top: 25%;
+	padding-left: 2%;
+}
+.hoody[data-mocap-number="14"] .mocapContainer__textContainer {
+    top: 26%;
+    padding-left: 1%;
+}
+
+[data-mocap-number="14"] .mocapContainer__textContainer span {
+	line-height: 1;
+}
+[data-mocap-number="14"] .printConfig__text2{
+	font-weight: 700;
+	font-size: 4.5em;
+	padding-top: .5em;
+	font-family: 'campusGrav';
+}
+.woman[data-mocap-number="14"] .printConfig__text2{
+	padding-top: .44em;
+}
+.sweatshirt[data-mocap-number="14"] .printConfig__text2{
+	padding-top: .38em;
+}
+
+
+
+
+/**/
+[data-mocap-number="14"] {
+	text-align: center;
+	color: #000;
+	font-size: 5px;
+}
+[data-mocap-number="14"] .mocapContainer__textContainer {
+	opacity: .85;
+	font-family: 'campus';
+}
+[data-mocap-number="14"] .mocapContainer__textContainer,
+.men[data-mocap-number="14"] .mocapContainer__textContainer {
+	top: 22%;
+	padding-left: 4%;
+	box-sizing: border-box;
+}
+.woman[data-mocap-number="14"] .mocapContainer__textContainer {
+    top: 26%;
+	padding-left: 4%;
+}
+.sweatshirt[data-mocap-number="14"] .mocapContainer__textContainer {
+    top: 25%;
+	padding-left: 2%;
+}
+.hoody[data-mocap-number="14"] .mocapContainer__textContainer {
+    top: 26%;
+    padding-left: 1%;
+}
+
+[data-mocap-number="14"] .mocapContainer__textContainer span {
+	line-height: 1;
+}
+[data-mocap-number="14"] .printConfig__text2{
+	font-weight: 700;
+	font-size: 4.5em;
+	padding-top: .5em;
+	font-family: 'campusGrav';
+}
+.woman[data-mocap-number="14"] .printConfig__text2{
+	padding-top: .44em;
+}
+.sweatshirt[data-mocap-number="14"] .printConfig__text2{
+	padding-top: .38em;
+}
+
+
+
+
+
+
+/**/
+[data-mocap-number="15"] {
+	text-align: center;
+	color: #fff;
+	font-size: 5px;
+}
+[data-mocap-number="15"] .mocapContainer__textContainer {
+	opacity: .85;
+	font-family: 'tower';
+}
+[data-mocap-number="15"] .mocapContainer__textContainer,
+.men[data-mocap-number="15"] .mocapContainer__textContainer {
+	top: 22%;
+	padding-left: 4%;
+	box-sizing: border-box;
+}
+.woman[data-mocap-number="15"] .mocapContainer__textContainer {
+    top: 26%;
+	padding-left: 4%;
+}
+.sweatshirt[data-mocap-number="15"] .mocapContainer__textContainer {
+    top: 25%;
+	padding-left: 2%;
+}
+.hoody[data-mocap-number="15"] .mocapContainer__textContainer {
+    top: 26%;
+    padding-left: 1%;
+}
+
+[data-mocap-number="15"] .mocapContainer__textContainer span {
+	line-height: 1;
+}
+
+[data-mocap-number="15"] .printConfig__text1 {
+	font-size: 2em;
+}
+[data-mocap-number="15"] .printConfig__text2{
+	font-weight: 700;
+	font-size: 9em;
+	margin-top: -.04em;
+}
+.men[data-mocap-number="15"] .printConfig__text2{
+	margin-top: -.01em;
+}
+.hoody[data-mocap-number="15"] .printConfig__text2{
+	font-size: 5.5em;
+	margin-top: -.04em;
+}
+
+
+
+
+/**/
+[data-mocap-number="16"] {
+	text-align: center;
+	color: #000;
+	font-size: 5px;
+}
+[data-mocap-number="16"] .mocapContainer__textContainer {
+	opacity: .85;
+	font-family: 'tower';
+}
+[data-mocap-number="16"] .mocapContainer__textContainer,
+.men[data-mocap-number="16"] .mocapContainer__textContainer {
+	top: 22%;
+	padding-left: 4%;
+	box-sizing: border-box;
+}
+.woman[data-mocap-number="16"] .mocapContainer__textContainer {
+    top: 26%;
+	padding-left: 4%;
+}
+.sweatshirt[data-mocap-number="16"] .mocapContainer__textContainer {
+    top: 25%;
+	padding-left: 2%;
+}
+.hoody[data-mocap-number="16"] .mocapContainer__textContainer {
+    top: 26%;
+    padding-left: 1%;
+}
+
+[data-mocap-number="16"] .mocapContainer__textContainer span {
+	line-height: 1;
+}
+
+[data-mocap-number="16"] .printConfig__text1 {
+	font-size: 2em;
+}
+[data-mocap-number="16"] .printConfig__text2{
+	font-weight: 700;
+	font-size: 9em;
+	margin-top: -.04em;
+}
+.men[data-mocap-number="16"] .printConfig__text2{
+	margin-top: -.01em;
+}
+.hoody[data-mocap-number="16"] .printConfig__text2{
+	font-size: 5.5em;
+	margin-top: -.04em;
+}
+
+
+
+
+/**/
+[data-mocap-number="17"] {
+	text-align: center;
+	color: #fff;
+	font-size: 5px;
+}
+[data-mocap-number="17"] .mocapContainer__textContainer {
+	opacity: .85;
+	font-family: 'tower';
+}
+[data-mocap-number="17"] .mocapContainer__textContainer,
+.men[data-mocap-number="17"] .mocapContainer__textContainer {
+	top: 19%;
+	padding-left: 4%;
+	box-sizing: border-box;
+}
+.woman[data-mocap-number="17"] .mocapContainer__textContainer {
+    top: 20%;
+	padding-left: 4%;
+}
+.sweatshirt[data-mocap-number="17"] .mocapContainer__textContainer {
+    top: 20%;
+	padding-left: 2%;
+}
+.hoody[data-mocap-number="17"] .mocapContainer__textContainer {
+    top: 21%;
+    padding-left: 1%;
+}
+
+[data-mocap-number="17"] .mocapContainer__textContainer span {
+    line-height: 1.19;
+}
+.woman[data-mocap-number="17"] .mocapContainer__textContainer span {
+    line-height: 1.22;
+}
+
+.hoody[data-mocap-number="17"] .mocapContainer__textContainer span {
+    line-height: 1.25;
+}
+
+[data-mocap-number="17"] .printConfig__text1 {
+	font-size: 2em;
+}
+.hoody[data-mocap-number="17"] .printConfig__text1 {
+	font-size: 1.5em;
+}
+[data-mocap-number="17"] .printConfig__text2{
+	font-weight: 700;
+	font-size: 7.7em;
+	margin-top: -.04em;
+}
+.men[data-mocap-number="17"] .printConfig__text2{
+	margin-top: -.01em;
+}
+
+.woman[data-mocap-number="17"] .printConfig__text2{
+	font-size: 7.7em;
+}
+.sweatshirt[data-mocap-number="17"] .printConfig__text2{
+	font-size: 7.5em;
+}
+.hoody[data-mocap-number="17"] .printConfig__text2{
+	font-size: 5.5em;
+	margin-top: -.04em;
+}
+
+
+
+
+
+
+/**/
+[data-mocap-number="18"] {
+	text-align: center;
+	color: #fff;
+	font-size: 5px;
+}
+[data-mocap-number="18"] .mocapContainer__textContainer {
+	opacity: .85;
+	font-family: 'campus';
+}
+[data-mocap-number="18"] .mocapContainer__textContainer,
+.men[data-mocap-number="18"] .mocapContainer__textContainer {
+	top: 26%;
+	padding-left: 4%;
+	box-sizing: border-box;
+}
+.woman[data-mocap-number="18"] .mocapContainer__textContainer {
+    top: 26%;
+	padding-left: 4%;
+}
+.sweatshirt[data-mocap-number="18"] .mocapContainer__textContainer {
+    top: 25%;
+	padding-left: 2%;
+}
+.hoody[data-mocap-number="18"] .mocapContainer__textContainer {
+    top: 26%;
+    padding-left: 1%;
+}
+
+[data-mocap-number="18"] .mocapContainer__textContainer span {
+	line-height: 1.2;
+}
+
+[data-mocap-number="18"] .printConfig__text1 {
+	font-size: 1.2em;
+}
+[data-mocap-number="18"] .printConfig__text2{
+	margin-top: -0.02em;
+	font-weight: 700;
+	font-size: 5.5em;
+}
+
+
+
+
+/**/
+[data-mocap-number="19"] {
+	text-align: center;
+	color: #fff;
+	font-size: 5px;
+}
+[data-mocap-number="19"] .mocapContainer__textContainer {
+	opacity: .85;
+	font-family: 'campus';
+}
+[data-mocap-number="19"] .mocapContainer__textContainer,
+.men[data-mocap-number="19"] .mocapContainer__textContainer {
+	top: 24%;
+	padding-left: 4%;
+	box-sizing: border-box;
+}
+.woman[data-mocap-number="19"] .mocapContainer__textContainer {
+    top: 26%;
+	padding-left: 4%;
+}
+.sweatshirt[data-mocap-number="19"] .mocapContainer__textContainer {
+    top: 25%;
+	padding-left: 2%;
+}
+.hoody[data-mocap-number="19"] .mocapContainer__textContainer {
+    top: 26%;
+    padding-left: 1%;
+}
+
+[data-mocap-number="19"] .mocapContainer__textContainer span {
+	line-height: 1.2;
+}
+
+[data-mocap-number="19"] .printConfig__text1 {
+	font-size: 1.2em;
+}
+[data-mocap-number="19"] .printConfig__text2{
+	margin-top: -0.02em;
+	font-weight: 700;
+	font-size: 5.5em;
+}
+
+

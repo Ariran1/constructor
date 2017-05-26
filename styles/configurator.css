@@ -1,0 +1,586 @@
+.container__printConfig {
+	background-color: #f2f2f2;
+    border-top: 1px solid #ccc;
+    display: none;
+    text-align: left;
+    margin-bottom: 8px;
+}
+.printConfig {
+	padding: 50px 16px 40px;
+	box-sizing: border-box;
+}
+
+.printConfig__preview {
+	width:380px;
+	height:500px;
+	background: #fff;
+	float: left;
+	position: relative;
+	font-size: 0;
+}
+
+
+.mocapContainer__textContainer {
+	font-size: 2.85em;
+}
+.intelectualTkan {
+	color:#0054a6;
+	border-bottom: 1px dashed #0054a6;
+	font-weight: 400;
+}
+.tooltip-inner{
+	display: none !important;
+	z-index: 1111;
+	position: absolute!important;
+	width: 90%;
+	max-width: 500px;
+	margin: 10px;
+	line-height: 1.4em;
+	background: #fff;
+	border-radius: 3px;
+	box-shadow: 0 15px 15px 0 rgba(0, 0, 0, 0.15);
+	padding: 20px;
+	-webkit-transform: translateY(-100%);
+	transform: translateY(-100%);
+}
+.tooltip-inner:before {
+	display: none!important;
+}
+.intelectualTkan:hover+.tooltip-inner,
+.intelectualTkan:focus+.tooltip-inner,
+.tooltip-inner:hover{
+	display: block !important;
+}
+.printConfig__preview-text {
+	font-size: 16px;
+}
+
+.printConfig__preview-text span {
+	font-size: 14px;
+	vertical-align: middle;
+	padding-left: 10px;
+}.printConfig__preview-text span:before {
+	content:'';
+	padding: 0 5px;
+	display: inline-block;
+	vertical-align: -10%;
+	width:19px;
+	height: 22px;
+	background: url('../images/eagle.svg') no-repeat center center;
+	background-size: contain;
+}
+.printConfig__preview-image {
+	vertical-align: middle;
+	max-width: 100%;
+	max-height: 100%;
+}
+.printConfig__preview-text {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	padding: 0 15px;
+	line-height: 40px;
+	border-top: 1px solid #dedede;
+	box-sizing: border-box;
+}
+
+
+
+.printConfig__options {
+	float: left;
+	margin: 0 110px 0;
+	width:568px;
+}
+.printConfig__options-gender,
+.printConfig__options-productType,
+.printConfig__options-productSize {
+	padding-bottom: 40px;
+    position: relative;
+}
+.printConfig__options-gender label {
+	
+}
+.printConfig__options-slider{
+	z-index: 1;
+	position: relative;
+}
+.slideStyleRadioButton {
+	font-size: 0;
+}
+.slideStyleRadioButton span.hr {
+	display: block;
+	border-bottom: 1px solid #e0e0e0;
+	margin: 0 10px;
+	position: relative;
+	z-index: 0;
+}
+
+.slideStyleRadioButton input{
+	display: none;
+}
+.slideStyleRadioButton label{
+	display: inline-block;
+	font-size: 14px;
+	color: #828282;
+	line-height: 40px;
+	border-radius: 3px;
+	text-align: center;
+    z-index: 2;
+    position: relative;
+	cursor: pointer;
+}
+.slideStyleRadioButton input + label {
+	border-radius: 3px;
+	box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.15);
+    transition: box-shadow .2s ease,color .3s ease;
+}
+.slideStyleRadioButton input:checked + label {
+	color: #0054a6;
+	box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.15);
+    transition: box-shadow .2s ease .8s,color .1s ease .8s;
+}
+.slideStyleRadioButton input:checked ~ .printConfig__options-slider {
+	background-color: #fff;
+	box-shadow: 0 2px 10px 0px rgba(0, 0, 0, 0.15);
+	height: 40px;
+	position: absolute;
+	border-radius: 3px;
+    top: 0;
+    transition: left .6s ease .2s, background-color .2s ease;
+}
+.printConfig__options-gender.slideStyleRadioButton label,
+.printConfig__options-gender.slideStyleRadioButton input:checked ~ .printConfig__options-slider {
+	width:24%;
+}
+
+.printConfig__options-gender.slideStyleRadioButton input:nth-of-type(1):checked ~ .printConfig__options-slider {
+	left:0;
+}
+.printConfig__options-gender.slideStyleRadioButton input:nth-of-type(2):checked ~ .printConfig__options-slider {
+	left:24%;
+}
+.printConfig__options-gender.slideStyleRadioButton input:nth-of-type(3):checked ~ .printConfig__options-slider {
+	left:48%;
+}
+.printConfig__options-gender.slideStyleRadioButton input:nth-of-type(4):checked ~ .printConfig__options-slider {
+	left:72%;
+}
+@media screen and (max-width:480px) {
+	.printConfig__options-gender.slideStyleRadioButton label,
+	.printConfig__options-gender.slideStyleRadioButton input:checked ~ .printConfig__options-slider {
+		width:32%;
+	}
+	.printConfig__options-gender.slideStyleRadioButton input:nth-of-type(2):checked ~ .printConfig__options-slider {
+		left:32%;
+	}
+	.printConfig__options-gender.slideStyleRadioButton input:nth-of-type(5):checked ~ .printConfig__options-slider {
+		left:64%;
+	}
+}
+.printConfig__options-gender.slideStyleRadioButton input:nth-of-type(5) + label {
+	display: none;
+}
+.printConfig__options-gender.slideStyleRadioButton span.hr {
+	top:-10px;
+}
+
+.printConfig__options-productType.slideStyleRadioButton label,
+.printConfig__options-productType.slideStyleRadioButton input:checked ~ .printConfig__options-slider {
+	width:32%;
+}
+
+.printConfig__options-productType.slideStyleRadioButton input:nth-of-type(1):checked ~ .printConfig__options-slider {
+	left:0;
+}
+.printConfig__options-productType.slideStyleRadioButton input:nth-of-type(2):checked ~ .printConfig__options-slider {
+	left:32%;
+}
+.printConfig__options-productType.slideStyleRadioButton input:nth-of-type(3):checked ~ .printConfig__options-slider {
+	left:64%;
+}
+.printConfig__options-productType.slideStyleRadioButton span.hr {
+	top:-10px;
+}
+
+
+
+
+
+.printConfig__options-sizesGrid {
+	color: #0054a6;
+	border: none;
+	font-size: 14px;
+	line-height: 1.3em;
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	top: 35px;
+	cursor: pointer;
+	transform: translate(100%, -100%);
+	z-index: 2;
+}
+.printConfig__options-sizesGrid .js-size-button {
+	position: relative;
+	top: 0;
+	left: 0;
+	font-size: inherit;
+	height: auto;
+	line-height: auto;
+	color: inherit;
+	border-bottom:none;
+	background: none;
+	display: inline;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	cursor: pointer;
+	-webkit-transform: translateY(50%);
+	transform: translateY(50%);
+
+}
+@media screen and (min-width: 1200px) {
+.printConfig__options-sizesGrid .js-size-button {
+	display: block;
+}
+}
+.printConfig__options-sizesGrid .js-size-button span{
+	display: block;
+	
+}
+.printConfig__options-productSize.slideStyleRadioButton label {
+	line-height:35px;
+}
+.printConfig__options-productSize.slideStyleRadioButton label span{
+	display: block;
+}
+
+.printConfig__options-productSize.slideStyleRadioButton input:checked ~ .printConfig__options-slider:after{
+	content:'';
+	border-bottom: 1px solid #e0e0e0;
+	display: block;
+	margin:35px 10px 0;
+}
+
+.printConfig__options-productSize.slideStyleRadioButton span.hr {
+	top:-35px;
+}
+.printConfig__options-productSize.slideStyleRadioButton input:checked ~ .printConfig__options-slider {
+	height: 70px;
+}
+
+.printConfig__options-productSize.slideStyleRadioButton span.hr {
+	border-bottom: 1px dashed #e0e0e0;
+}
+
+
+.printConfig__options-productSize.slideStyleRadioButton label,
+.printConfig__options-productSize.slideStyleRadioButton input:checked ~ .printConfig__options-slider {
+	width:10.7%;
+}
+
+.printConfig__options-productSize.slideStyleRadioButton input:nth-of-type(1):checked ~ .printConfig__options-slider {
+	left:0;
+}
+.printConfig__options-productSize.slideStyleRadioButton input:nth-of-type(2):checked ~ .printConfig__options-slider {
+	left:10.7%;
+}
+.printConfig__options-productSize.slideStyleRadioButton input:nth-of-type(3):checked ~ .printConfig__options-slider {
+	left:21.4%;
+}
+.printConfig__options-productSize.slideStyleRadioButton input:nth-of-type(4):checked ~ .printConfig__options-slider {
+	left:32.1%;
+}
+.printConfig__options-productSize.slideStyleRadioButton input:nth-of-type(5):checked ~ .printConfig__options-slider {
+	left:42.8%;
+}
+.printConfig__options-productSize.slideStyleRadioButton input:nth-of-type(6):checked ~ .printConfig__options-slider {
+	left:53.5%;
+}
+.printConfig__options-productSize.slideStyleRadioButton input:nth-of-type(7):checked ~ .printConfig__options-slider {
+	left:64.2%;
+}
+.printConfig__options-productSize.slideStyleRadioButton input:nth-of-type(8):checked ~ .printConfig__options-slider {
+	left:74.9%;
+}
+.printConfig__options-productSize.slideStyleRadioButton input:nth-of-type(9):checked ~ .printConfig__options-slider {
+	left:85.6%;
+}
+.printConfig__options-productSize.slideStyleRadioButton input:nth-of-type(10)+ label{
+	display: none;
+}
+/*   children */
+
+.children .printConfig__options-productSize.slideStyleRadioButton input:checked ~ .printConfig__options-slider:after{
+	margin:30px 10px 0;
+}
+
+.children .printConfig__options-productSize.slideStyleRadioButton span.hr {
+	top:-5px;
+}
+.children .printConfig__options-productSize.slideStyleRadioButton input:checked ~ .printConfig__options-slider {
+	height: 35px;
+}
+
+
+.children .printConfig__options-productSize.slideStyleRadioButton label,
+.children .printConfig__options-productSize.slideStyleRadioButton input:checked ~ .printConfig__options-slider {
+	width:9.63%;
+}
+
+.children .printConfig__options-productSize.slideStyleRadioButton input:nth-of-type(1):checked ~ .printConfig__options-slider {
+	left:0;
+}
+.children .printConfig__options-productSize.slideStyleRadioButton input:nth-of-type(2):checked ~ .printConfig__options-slider {
+	left:9.63%;
+}
+.children .printConfig__options-productSize.slideStyleRadioButton input:nth-of-type(3):checked ~ .printConfig__options-slider {
+	left:19.26%;
+}
+.children .printConfig__options-productSize.slideStyleRadioButton input:nth-of-type(4):checked ~ .printConfig__options-slider {
+	left:28.89%;
+}
+.children .printConfig__options-productSize.slideStyleRadioButton input:nth-of-type(5):checked ~ .printConfig__options-slider {
+	left:38.52%;
+}
+.children .printConfig__options-productSize.slideStyleRadioButton input:nth-of-type(6):checked ~ .printConfig__options-slider {
+	left:48.15%;
+}
+.children .printConfig__options-productSize.slideStyleRadioButton input:nth-of-type(7):checked ~ .printConfig__options-slider {
+	left:57.78%;
+}
+.children .printConfig__options-productSize.slideStyleRadioButton input:nth-of-type(8):checked ~ .printConfig__options-slider {
+	left:67.41%;
+}
+.children .printConfig__options-productSize.slideStyleRadioButton input:nth-of-type(9):checked ~ .printConfig__options-slider {
+	left:77.04%;
+}
+.children .printConfig__options-productSize.slideStyleRadioButton input:nth-of-type(10)+ label{
+	display: inline-block;
+}
+.children .printConfig__options-productSize.slideStyleRadioButton input:nth-of-type(10):checked ~ .printConfig__options-slider {
+	left:86.67%;
+}
+
+/* =======================================================*/
+
+[data-style="inputText"] {
+	width:269px;
+	float: left;
+	margin: 38px 1%;
+}
+[data-style="inputText"] input[type="file"] {
+	display: none;
+}
+[data-style="inputText"] input[type="file"] + label {
+	height: 48px;
+    color: #0054a6;
+    font-weight: 400;
+    font-size: inherit;
+    width: 100%;
+    border-radius: 3px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #dbdbdb;
+    outline: none;
+    text-align: center;
+    position: relative;
+    line-height: 48px;
+    top: 0;
+    margin: 0;
+    display: block;
+    background: #fff;
+    cursor: pointer;
+}
+.printConfig__options-priceBlock {
+	font-size: 0;
+	padding: 10px 0; 
+}
+.printConfig__options-priceText {
+	width: 269px;
+	display: inline-block;
+	font-size: 16px;
+	padding-right: 10px;
+	text-align: right;
+}
+.printConfig__options-price {
+	font-size: 22px;
+	font-weight: 400;
+	padding-left: 10px;
+	padding-right: 10px;
+	color: #0054a6;
+	width: 269px;
+	display: inline-block;
+}
+
+
+[data-style="inputText"] {
+	margin-top:15px;
+	margin-bottom:15px;
+}
+[data-style="inputText"]:nth-of-type(2n + 1) {
+	margin-left:0;
+	margin-right:10px;
+}
+[data-style="inputText"]:nth-of-type(2n) {
+	margin-left:10px;
+	margin-right:0;
+}
+
+
+/* =======================================================*/
+.printConfig__options-price:after {
+	content: ' Руб.'
+}
+
+.printConfig__options-button {
+	float:left;
+	width: 269px;
+}
+.printConfig__options-button:nth-of-type(1) {
+	margin-left:0;
+}
+.printConfig__options-button:nth-of-type(2) {
+
+}
+
+
+
+
+@media screen and (max-width: 1200px) {
+	.printConfig__preview {
+		width:300px;
+    	margin-left:3%;
+	}
+    .printConfig__options {
+    	margin-left:3%;
+    	margin-right:0;
+    }
+    .printConfig__preview-text span {
+    	display: none;
+    }
+    
+	.printConfig__options-sizesGrid {
+		width: 93%;
+    	-webkit-transform: translate(0,0);
+    	transform: translate(0,0);
+    	position: relative;
+    	display: block;
+    	text-align: center;
+    }
+    
+	.printConfig__options-sizesGrid .js-size-button span{
+		display: inline;
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+
+}
+@media screen and (max-width: 960px) {
+    
+    .printConfig__preview {
+    	display: none;
+    }
+    .printConfig {
+    	text-align: center;
+    	padding-right:0;
+    }
+	.printConfig__options {
+		display: inline-block;
+		float: none;
+    	margin-left:0;
+    	margin-right:0;
+    	width: 100%;
+
+	}
+	.slideStyleRadioButton {
+		text-align: left;
+	}
+	.printConfig__options-price {
+		text-align: left;
+	}
+    .printConfig__options-sizesGrid .js-size-button span{
+    	position: relative;
+    }
+	.printConfig__options-sizesGrid .js-size-button span:nth-of-type(2) {
+		margin-right: 1.5%;
+    }
+	.intelectualTkan {
+		display: inline;
+		margin-left: 1.5%;
+	}
+	[data-style="inputText"] {
+		width:47%;
+	}
+	[data-config-type="1"] [data-style="inputText"]:nth-of-type(2n + 1) {
+		margin-right: 1.5%;
+	}
+	[data-config-type="1"] [data-style="inputText"]:nth-of-type(2n) {
+		margin-left: 1.5%;
+	}
+
+
+	.printConfig__options-priceText,
+	.printConfig__options-price {
+		width:47%;
+	}
+	.printConfig__options-priceText {
+		padding-right: 1.5%;
+	}
+	.printConfig__options-price {
+		padding-left: 1.5%;
+	}
+	.printConfig__options-button {
+		width:47%;
+	}
+	.printConfig__options-button:nth-of-type(2n + 1) {
+		margin-right: 1.5%;
+	}
+	.printConfig__options-button:nth-of-type(2n) {
+		margin-left: 1.5%;
+	}
+}
+@media screen and (max-width: 720px) {
+    
+
+}
+@media screen and (max-width: 480px) {
+	.printConfig {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	.printConfig__options-gender.slideStyleRadioButton input:nth-of-type(3) + label {
+		display: none;
+	}
+	.printConfig__options-gender.slideStyleRadioButton input:nth-of-type(4) + label {
+		display: none;
+	}
+	.printConfig__options-gender.slideStyleRadioButton input:nth-of-type(5) + label {
+		display: inline-block;
+	}
+	[data-style="inputText"] {
+		width:100%;
+		margin: 10px 0;
+		margin-right: 3.125% !important;
+		margin-left: 0 !important;
+	}
+	[data-style="inputText"] input[disabled]{
+		display: none;
+	}
+	[data-style="inputText"] input[disabled] + label{
+		display: none;
+	}
+	.printConfig__options-priceText {
+		width:55.3125%;
+	}
+	.printConfig__options-price {
+		width:35.3125%;
+	}
+	.printConfig__options-button {
+		width:100%;
+		margin-right: 3.125% !important;
+		margin-left: 0 !important;
+		float: none;
+	}
+}
+

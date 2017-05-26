@@ -1,0 +1,163 @@
+
+
+.container__yourPrint {
+	padding-bottom: 40px;
+}
+.yourPrint__itemsLine {
+	text-align: center;
+	font-size: 0;
+}
+.yourPrint__item {
+	width: 280px;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	height: 370px;
+	display: inline-block;
+	position: relative;
+	margin: 8px;
+	text-align: center;
+	border: 1px solid #dbdbdb;
+	border-radius: 3px;
+	font-size: 16px;
+	cursor: pointer;
+	vertical-align: middle;
+}
+.yourPrint__item:hover {
+	box-shadow: 0 15px 15px 0 rgba(0, 0, 0, 0.15);
+	-webkit-transition: box-shadow .2s ease;
+	-moz-transition: box-shadow .2s ease;
+	-o-transition: box-shadow .2s ease;
+	transition: box-shadow .2s ease;
+}
+.yourPrint__item--active {
+	height: 386px;
+	border-bottom: none;
+	border-radius: 3px 3px 0 0;
+	margin-bottom:0;
+}
+
+.yourPrint__item--active:hover {
+	box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.15);
+}
+.yourPrint__item--active:before {
+	content: '';
+	display: block;
+	border: 18px solid transparent;
+	border-bottom: 12px solid #ccc;
+	width: 0;
+	height: 0;
+	position: absolute;
+	bottom: 0px;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	z-index:1;
+}
+.yourPrint__item--active:after {
+	content: '';
+	display: block;
+	border: 18px solid transparent;
+	border-bottom: 12px solid #f2f2f2;
+	width: 0;
+	height: 0;
+	position: absolute;
+	bottom: -1px;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	z-index:2;
+}
+.wrapLine--helper:nth-of-type(4n) {
+	display: block;
+}
+.yourPrint__item--active .yourPrint__item-contentContainer {
+	bottom: 41px;
+}
+
+.yourPrint__item-imageContainer {
+	padding:16px;
+}
+.yourPrint__item-imageContainer .mocapContainer > img{
+	max-width: 240px; 
+	max-height: 245px;
+}
+.yourPrint__item-contentContainer {
+	position: absolute;
+	bottom: 25px;
+	width:100%;
+	left:0;
+}
+.yourPrint__item-price {
+	padding: 16px;
+	font-weight: bold;
+	color: #4f4f4f;
+}
+.yourPrint__item-price:after {
+	content: ' Руб.';
+}
+.yourPrint__item-oldPrice {
+	text-decoration: line-through;
+	color:#999;
+}
+.yourPrint__item-oldPrice:after {
+	content: ' Руб.';
+	padding-right: 5px;
+}
+.yourPrint__item-button {
+	min-width: 170px;
+	display: inline-block;
+	line-height: 40px;
+	margin:0;
+	border:none;
+	outline: none;
+	color:#fff;
+	background: #0054a6;
+	border-radius: 3px;
+	font-size: 1em;
+	letter-spacing: 0.04em;
+	cursor: pointer;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+
+}
+.yourPrint__item-button:hover {
+	box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.15);
+}
+@media screen and (max-width: 1200px) {
+	
+.wrapLine--helper:nth-of-type(4n) {
+	display: none;
+}
+
+.wrapLine--helper:nth-of-type(3n) {
+	display: block;
+}
+}
+@media screen and (max-width: 960px) {
+.yourPrint__header {
+	padding-top:20px;
+}
+.wrapLine--helper:nth-of-type(3n) {
+	display: none;
+}
+
+.wrapLine--helper:nth-of-type(2n) {
+	display: block;
+}  
+    
+
+}
+@media screen and (max-width: 720px) {
+.wrapLine--helper:nth-of-type(2n) {
+	display: none;
+}
+
+.wrapLine--helper:nth-of-type(n) {
+	display: block;
+} 
+
+}

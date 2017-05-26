@@ -1,0 +1,128 @@
+.container__header {
+	background: url(../images/header__BG.png) no-repeat center center;
+	background-size: cover;
+}
+.header__a > div {
+	float:left;
+}
+.header__aboutSite {
+	width:35.75%;
+	margin: 5.41% 0.8333% 5.41% 1.333%;
+	background: url(../images/9may.svg) no-repeat center center;
+	background-size: contain;
+	padding-bottom:11.333%;
+}
+.header__aboutSite-image {
+	height:auto;
+	display: inline-block;
+}
+.header__aboutHoliday {
+    padding: 5.41% 0 0 3.75%;
+    width: 32.75%;
+}
+.header__logo {
+	background: url(../images/Groups.svg) no-repeat center center;
+	background-size: contain;
+	width:89.3%;
+	padding-bottom: 19.37%;
+}
+.header__headerCTA {
+	width:23.41%;
+	padding: 25px 0.8333% 15px 1.333%;
+    font-size: 16px;
+}
+.header__headerCTA-image {
+	display: block;
+	width:100%;
+	height:auto;
+}
+.header__dayCount-days {
+	font-size: 2em;
+	line-height: 1.2;
+	display: block;
+}
+.header__headerCTA-button {
+	padding: 0px 0.8333%;
+	display: block;
+	width: 75.8333%;
+	margin: auto;
+	background: #fff;
+	color:#000;
+	border-radius: 50px;
+	line-height: 40px;
+	position: relative;
+	z-index: 1;
+	margin-top: -32px;
+	box-shadow: 0 15px 15px 0 rgba(0, 0, 0, .25);
+	text-align: center;
+}
+.header__dayCount {
+	padding: 15px;
+    font-size: 16px;
+    text-align: center;
+    color: #581419;
+    font-weight: 400;
+}
+
+@media screen and (max-width:960px) {
+.header__dayCount {
+    font-size: 14px;
+}
+.header__dayCount-days {
+	font-size: 1.4em;
+}
+.header__headerCTA {
+    font-size: 14px;
+}
+}
+@media screen and (max-width:720px) {
+
+.header__aboutSite {
+	width:300px;
+	float:none !important;
+	display: block;
+	margin: 0px auto;
+	background: url(../images/Groupasd.svg) no-repeat center center;
+	background-size: contain;
+	padding-bottom:144px;
+	border-top:20px solid transparent;
+}
+.header__headerCTA {
+	width:260px;
+	margin: auto;
+	padding: 0;
+	display: block;
+	float:none !important;
+}
+.header__headerCTA img{
+	display: none;
+
+}
+.header__headerCTA-button {
+	margin:auto;
+	margin-top:10px;
+}
+.header__aboutHoliday {
+	padding: 0;
+	width:300px;
+	margin:auto;
+	float: none !important;
+}
+.header__dayCount-days {
+	display: inline;
+}
+.header__logo {
+	width:0;
+	padding: 0;
+
+}
+}
+@media screen and (max-width:480px) {
+
+	.b-product-buttons__button {
+    	padding: 20px 0;
+	}
+	.b-product-buttons__button-br {
+		display: block;
+	}
+}
