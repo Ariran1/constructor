@@ -1,3 +1,40 @@
+@font-face {
+	font-family: 'Campus';
+	src: url('../fonts/ACampus/ACampus.eot');
+	src: local('☺'), url('../fonts/ACampus/ACampus.woff') format('woff'), url('../fonts/ACampus/ACampus.ttf') format('truetype'), url('../fonts/ACampus/ACampus.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'CampusGrav1';
+	src: url('../fonts/ACampusGrav/ACampusGrav.eot');
+	src: local('☺'), url('../fonts/ACampusGrav/ACampusGrav.woff') format('woff'), url('../fonts/ACampusGrav/ACampusGrav.ttf') format('truetype'), url('../fonts/ACampusGrav/ACampusGrav.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Droid';
+	src: url('../fonts/Droid/Droid.eot');
+	src: local('☺'), url('../fonts/Droid/Droid.woff') format('woff'), url('../fonts/Droid/Droid.ttf') format('truetype'), url('../fonts/Droid/Droid.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'CampusGrav';
+	src: url('../fonts/JACKPORT/JACKPORT.eot');
+	src: local('☺'), url('../fonts/JACKPORT/JACKPORT.woff') format('woff'), url('../fonts/JACKPORT/JACKPORT.ttf') format('truetype'), url('../fonts/JACKPORT/JACKPORT.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+
+
+
+
+
 
 .mocapContainer {
 	position: relative;
@@ -50,7 +87,7 @@
 }
 [data-mocap-number="13"] .mocapContainer__textContainer {
 	opacity: .85;
-	font-family: 'campus';
+	font-family: 'Campus';
 }
 [data-mocap-number="13"] .mocapContainer__textContainer,
 .men[data-mocap-number="13"] .mocapContainer__textContainer {
@@ -78,7 +115,7 @@
 	font-weight: 700;
 	font-size: 4.5em;
 	padding-top: .5em;
-	font-family: 'campusGrav';
+	font-family: 'CampusGrav';
 }
 .woman-shirt[data-mocap-number="13"] .printConfig__text2{
 	padding-top: .44em;
@@ -95,7 +132,7 @@
 }
 [data-mocap-number="14"] .mocapContainer__textContainer {
 	opacity: .85;
-	font-family: 'campus';
+	font-family: 'Campus';
 }
 [data-mocap-number="14"] .mocapContainer__textContainer,
 .men[data-mocap-number="14"] .mocapContainer__textContainer {
@@ -123,7 +160,7 @@
 	font-weight: 700;
 	font-size: 4.5em;
 	padding-top: .5em;
-	font-family: 'campusGrav';
+	font-family: 'CampusGrav';
 }
 .woman-shirt[data-mocap-number="14"] .printConfig__text2{
 	padding-top: .44em;
@@ -143,7 +180,7 @@
 }
 [data-mocap-number="14"] .mocapContainer__textContainer {
 	opacity: .85;
-	font-family: 'campus';
+	font-family: 'Campus';
 }
 [data-mocap-number="14"] .mocapContainer__textContainer,
 .men[data-mocap-number="14"] .mocapContainer__textContainer {
@@ -171,7 +208,7 @@
 	font-weight: 700;
 	font-size: 4.5em;
 	padding-top: .5em;
-	font-family: 'campusGrav';
+	font-family: 'CampusGrav';
 }
 .woman-shirt[data-mocap-number="14"] .printConfig__text2{
 	padding-top: .44em;
@@ -193,7 +230,7 @@
 }
 [data-mocap-number="15"] .mocapContainer__textContainer {
 	opacity: .85;
-	font-family: 'tower';
+	font-family: 'Droid';
 }
 [data-mocap-number="15"] .mocapContainer__textContainer,
 .men[data-mocap-number="15"] .mocapContainer__textContainer {
@@ -245,7 +282,7 @@
 }
 [data-mocap-number="16"] .mocapContainer__textContainer {
 	opacity: .85;
-	font-family: 'tower';
+	font-family: 'Droid';
 }
 [data-mocap-number="16"] .mocapContainer__textContainer,
 .men[data-mocap-number="16"] .mocapContainer__textContainer {
@@ -297,7 +334,7 @@
 }
 [data-mocap-number="17"] .mocapContainer__textContainer {
 	opacity: .85;
-	font-family: 'tower';
+	font-family: 'Droid';
 }
 [data-mocap-number="17"] .mocapContainer__textContainer,
 .men[data-mocap-number="17"] .mocapContainer__textContainer {
@@ -368,7 +405,7 @@
 }
 [data-mocap-number="18"] .mocapContainer__textContainer {
 	opacity: .85;
-	font-family: 'campus';
+	font-family: 'Campus';
 }
 [data-mocap-number="18"] .mocapContainer__textContainer,
 .men[data-mocap-number="18"] .mocapContainer__textContainer {
@@ -413,7 +450,7 @@
 }
 [data-mocap-number="19"] .mocapContainer__textContainer {
 	opacity: .85;
-	font-family: 'campus';
+	font-family: 'Campus';
 }
 [data-mocap-number="19"] .mocapContainer__textContainer,
 .men[data-mocap-number="19"] .mocapContainer__textContainer {
