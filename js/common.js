@@ -681,6 +681,30 @@ var selectPrint = function () {
 				}
 			}
 		}
+	}, {
+		key: 'moveToConfig',
+		value: function moveToConfig() {
+			var top = window.pageYOffset;
+			var i = 0;
+
+			var configC = this.father.config.getBoundingClientRect().top;
+
+			var to = top + configC;
+			function stop(e) {
+				e.preventDefault();
+			}
+			document.addEventListener('mousewheel', stop);
+
+			var a = setInterval(function () {
+				configC = configC * 0.88;
+				window.scrollTo(0, to - configC);
+				i += 1;
+				if (i == 40) {
+					document.removeEventListener('mousewheel', stop);
+					clearInterval(a);
+				}
+			}, 16);
+		}
 	}]);
 
 	return selectPrint;
@@ -1011,6 +1035,7 @@ var configurator = function () {
 				_this.selectType.setTooltip();
 				_this.selectPrint.moveConfig();
 				_this.generatePrint.start();
+				_this.selectPrint.moveToConfig();
 			});
 		}
 	}
@@ -1076,7 +1101,7 @@ var configurator = function () {
 				a = '';
 			}
 
-			var dataText = this.genderValue + this.productTypeValue;
+			var dataText = a + this.productTypeValue;
 
 			var id = mocap.getAttribute('data-' + dataText + '-id');
 
