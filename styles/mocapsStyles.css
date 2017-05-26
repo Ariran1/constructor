@@ -66,7 +66,7 @@
     top: 25%;
 	padding-left: 2%;
 }
-.hoody[data-mocap-number="13"] .mocapContainer__textContainer {
+.hoodie[data-mocap-number="13"] .mocapContainer__textContainer {
     top: 26%;
     padding-left: 1%;
 }
@@ -111,7 +111,7 @@
     top: 25%;
 	padding-left: 2%;
 }
-.hoody[data-mocap-number="14"] .mocapContainer__textContainer {
+.hoodie[data-mocap-number="14"] .mocapContainer__textContainer {
     top: 26%;
     padding-left: 1%;
 }
@@ -159,7 +159,7 @@
     top: 25%;
 	padding-left: 2%;
 }
-.hoody[data-mocap-number="14"] .mocapContainer__textContainer {
+.hoodie[data-mocap-number="14"] .mocapContainer__textContainer {
     top: 26%;
     padding-left: 1%;
 }
@@ -209,7 +209,7 @@
     top: 25%;
 	padding-left: 2%;
 }
-.hoody[data-mocap-number="15"] .mocapContainer__textContainer {
+.hoodie[data-mocap-number="15"] .mocapContainer__textContainer {
     top: 26%;
     padding-left: 1%;
 }
@@ -229,7 +229,7 @@
 .men[data-mocap-number="15"] .printConfig__text2{
 	margin-top: -.01em;
 }
-.hoody[data-mocap-number="15"] .printConfig__text2{
+.hoodie[data-mocap-number="15"] .printConfig__text2{
 	font-size: 5.5em;
 	margin-top: -.04em;
 }
@@ -261,7 +261,7 @@
     top: 25%;
 	padding-left: 2%;
 }
-.hoody[data-mocap-number="16"] .mocapContainer__textContainer {
+.hoodie[data-mocap-number="16"] .mocapContainer__textContainer {
     top: 26%;
     padding-left: 1%;
 }
@@ -281,7 +281,7 @@
 .men[data-mocap-number="16"] .printConfig__text2{
 	margin-top: -.01em;
 }
-.hoody[data-mocap-number="16"] .printConfig__text2{
+.hoodie[data-mocap-number="16"] .printConfig__text2{
 	font-size: 5.5em;
 	margin-top: -.04em;
 }
@@ -313,7 +313,7 @@
     top: 20%;
 	padding-left: 2%;
 }
-.hoody[data-mocap-number="17"] .mocapContainer__textContainer {
+.hoodie[data-mocap-number="17"] .mocapContainer__textContainer {
     top: 21%;
     padding-left: 1%;
 }
@@ -325,14 +325,14 @@
     line-height: 1.22;
 }
 
-.hoody[data-mocap-number="17"] .mocapContainer__textContainer span {
+.hoodie[data-mocap-number="17"] .mocapContainer__textContainer span {
     line-height: 1.25;
 }
 
 [data-mocap-number="17"] .printConfig__text1 {
 	font-size: 2em;
 }
-.hoody[data-mocap-number="17"] .printConfig__text1 {
+.hoodie[data-mocap-number="17"] .printConfig__text1 {
 	font-size: 1.5em;
 }
 [data-mocap-number="17"] .printConfig__text2{
@@ -350,7 +350,7 @@
 .sweatshirt[data-mocap-number="17"] .printConfig__text2{
 	font-size: 7.5em;
 }
-.hoody[data-mocap-number="17"] .printConfig__text2{
+.hoodie[data-mocap-number="17"] .printConfig__text2{
 	font-size: 5.5em;
 	margin-top: -.04em;
 }
@@ -384,7 +384,7 @@
     top: 25%;
 	padding-left: 2%;
 }
-.hoody[data-mocap-number="18"] .mocapContainer__textContainer {
+.hoodie[data-mocap-number="18"] .mocapContainer__textContainer {
     top: 26%;
     padding-left: 1%;
 }
@@ -429,7 +429,7 @@
     top: 25%;
 	padding-left: 2%;
 }
-.hoody[data-mocap-number="19"] .mocapContainer__textContainer {
+.hoodie[data-mocap-number="19"] .mocapContainer__textContainer {
     top: 26%;
     padding-left: 1%;
 }

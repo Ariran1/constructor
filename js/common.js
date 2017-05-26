@@ -72,13 +72,18 @@
 
 "use strict";
 
-//import events from './events';
 
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _clickStart = __webpack_require__(6);
+
+var _clickStart2 = _interopRequireDefault(_clickStart);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -161,7 +166,7 @@ var generateCanvasImage = function () {
 
 						_this3.ctx.drawImage(_this3.productPhoto, 0, 0, _this3.width, _this3.height);
 						resolve();
-					}, 50);
+					}, 20);
 				}).then(function () {
 					return _this3.setAllText();
 				}).then(function () {
@@ -180,9 +185,10 @@ var generateCanvasImage = function () {
 							_this3.a.innerHTML = '<img width="100%" src="' + window.orderImage + '">';
 						}
 					}, 600);
-					var b = new clickStart({
+					var b = new _clickStart2.default({
 						element: document.querySelector('.js-buy'),
 						callback: function callback() {
+							console.log(1);
 							clearTimeout(_this3.timeout);
 							window.orderImage = _this3.c.toDataURL("image/png");
 							if (window.development) {
@@ -192,6 +198,8 @@ var generateCanvasImage = function () {
 									_this3.a.style.height = '50px';
 									_this3.a.style.position = 'fixed';
 									_this3.a.style.top = '0px';
+									_this3.a.style.zIndex = '200';
+
 									document.body.insertAdjacentElement('afterbegin', _this3.a);
 									_this3.qwe = true;
 								}
@@ -273,7 +281,7 @@ var generateCanvasImage = function () {
 					_this4.setText(_this4.itemtext1, _this4.itemtext1C, text);
 
 					resolve();
-				}, 50);
+				}, 20);
 			}).then(function () {
 				return new Promise(function (resolve, reject) {
 					setTimeout(function () {
@@ -292,7 +300,7 @@ var generateCanvasImage = function () {
 						_this4.setText(_this4.itemtext2, _this4.itemtext2C, text);
 
 						resolve();
-					}, 50);
+					}, 20);
 				});
 			}).then(function () {
 				return new Promise(function (resolve, reject) {
@@ -312,7 +320,7 @@ var generateCanvasImage = function () {
 						_this4.setText(_this4.itemtext3, _this4.itemtext3C, text);
 
 						resolve();
-					}, 50);
+					}, 20);
 				});
 			}).catch(function (err) {
 				console.error("Ошибка в промиcах переноса текста в канвас", err);
@@ -1096,6 +1104,66 @@ document.addEventListener('DOMContentLoaded', function () {
 		console.log('В выборе принта ошибка.', err);
 	}
 });
+
+/***/ }),
+/* 5 */,
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+// version 0.0.0
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var clickStart = function () {
+	function clickStart(options) {
+		_classCallCheck(this, clickStart);
+
+		this.element = options.element || window;
+		this.callback = options.callback;
+
+		this.Listener();
+	}
+
+	_createClass(clickStart, [{
+		key: 'typeOfEvent',
+		value: function typeOfEvent() {
+			var event = void 0;
+			switch (null) {
+				case window.ontouchstart:
+					event = 'touchstart';
+					break;
+				case window.onmousedown:
+					event = 'mousedown';
+					break;
+				default:
+					throw new Error('Никакого события clickStart нету');
+			}
+			return event;
+		}
+	}, {
+		key: 'Listener',
+		value: function Listener() {
+			this.element.addEventListener(this.typeOfEvent(), this.callback);
+		}
+	}, {
+		key: 'end',
+		value: function end() {
+			this.element.removeEventListener(this.typeOfEvent(), this.callback);
+		}
+	}]);
+
+	return clickStart;
+}();
+
+exports.default = clickStart;
 
 /***/ })
 /******/ ]);
