@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -79,7 +79,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _clickStart = __webpack_require__(6);
+var _clickStart = __webpack_require__(4);
 
 var _clickStart2 = _interopRequireDefault(_clickStart);
 
@@ -441,14 +441,16 @@ var inputsForMocaps = function () {
 	}, {
 		key: 'setText1',
 		value: function setText1() {
-			var _this = this;
+			var _this2 = this;
 
 			function work(value) {
 				var text = document.querySelectorAll('.printConfig__text1');
 
 				//transformValueCode
 
+
 				for (var i = 0; i < text.length; i++) {
+					if (!value) value = text[i].getAttribute('data-shadow-text');
 					text[i].innerHTML = value;
 				}
 			}
@@ -457,28 +459,78 @@ var inputsForMocaps = function () {
 				var a = event.currentTarget.value;
 
 				work(a);
-				_this.callback();
+				_this2.callback();
 			});
 			this.mocapInput1.addEventListener('change', function (event) {
 				var a = event.currentTarget.value;
 
 				work(a);
-				_this.callback();
+				_this2.callback();
 			});
 		}
 	}, {
 		key: 'setText2',
 		value: function setText2() {
-			var _this2 = this;
+			var _this3 = this;
 
+			var _this = this;
 			function work(value) {
 				var text = document.querySelectorAll('.printConfig__text2');
 
 				//transformValueCode
+				var svgTextForMoc13and14 = function svgTextForMoc13and14(textBlock, value) {
+					var mocap = textBlock.closest('.mocapContainer');
+					if (!mocap) {
+						return;
+					}
 
+					var mocapNumber = +mocap.getAttribute('data-mocap-number');
+					if (mocapNumber != 13 && mocapNumber != 14) {
+						return;
+					}
+
+					var image = textBlock.querySelector('img');
+					var secondImage = textBlock.querySelector('img + img');
+					var link = image.getAttribute('src');
+					link = link.slice(0, -5);
+
+					if (value.length === 1) {
+
+						if (secondImage) secondImage.remove();
+					} else {
+
+						if (!secondImage) secondImage = new Image();
+						textBlock.append(secondImage);
+					}
+
+					for (var i = 0; i < value.length; i++) {
+
+						if (i == 0) {
+							image.setAttribute('src', link + value[i] + '.svg');
+						} else {
+							secondImage.setAttribute('src', link + value[i] + '.svg');
+						}
+					}
+					return true;
+				};
 
 				for (var i = 0; i < text.length; i++) {
-					text[i].innerHTML = value;
+					var textValue = void 0;
+					if (!value) {
+						textValue = text[i].getAttribute('data-shadow-text') || '87';
+					} else {
+						value = value.split('').filter(function (item) {
+							return Number.isInteger(parseInt(item));
+						}).join('');
+
+						if (value.length > 2) value = value.slice(0, 2);
+
+						_this.mocapInput2.value = value;
+					}
+
+					if (svgTextForMoc13and14(text[i], value || textValue)) continue;
+
+					text[i].innerHTML = value || textValue;
 				}
 			}
 
@@ -486,19 +538,19 @@ var inputsForMocaps = function () {
 				var a = event.currentTarget.value;
 
 				work(a);
-				_this2.callback();
+				_this3.callback();
 			});
 			this.mocapInput2.addEventListener('change', function (event) {
 				var a = event.currentTarget.value;
 
 				work(a);
-				_this2.callback();
+				_this3.callback();
 			});
 		}
 	}, {
 		key: 'setText3',
 		value: function setText3() {
-			var _this3 = this;
+			var _this4 = this;
 
 			function work(value) {
 				var text = document.querySelectorAll('.printConfig__text3');
@@ -507,6 +559,9 @@ var inputsForMocaps = function () {
 
 
 				for (var i = 0; i < text.length; i++) {
+
+					if (!value) value = text[i].getAttribute('data-shadow-text');
+
 					text[i].innerHTML = value;
 				}
 			}
@@ -514,13 +569,13 @@ var inputsForMocaps = function () {
 				var a = event.currentTarget.value;
 
 				work(a);
-				_this3.callback();
+				_this4.callback();
 			});
 			this.mocapInput3.addEventListener('change', function (event) {
 				var a = event.currentTarget.value;
 
 				work(a);
-				_this3.callback();
+				_this4.callback();
 			});
 		}
 	}, {
@@ -693,17 +748,25 @@ var selectPrint = function () {
 			function stop(e) {
 				e.preventDefault();
 			}
+
 			document.addEventListener('mousewheel', stop);
 
+			var html = document.documentElement;
+			var body = document.body;
+			var z = 0.00033;
+			var mult = 0.95;
+
 			var a = setInterval(function () {
-				configC = configC * 0.88;
-				window.scrollTo(0, to - configC);
+				configC = configC * mult;
+				//window.scrollTo(0,to - configC);
+				(body.scrollTop = to - configC) || (html.scrollTop = to - configC);
 				i += 1;
-				if (i == 40) {
+				if (i == 130) {
 					document.removeEventListener('mousewheel', stop);
 					clearInterval(a);
 				}
-			}, 16);
+				mult += z;
+			}, 4);
 		}
 	}]);
 
@@ -797,7 +860,7 @@ var selectType = function () {
 
 			var a = prewiew.getAttribute(attr);
 
-			if (!!this.mocapsOldClassName) prewiew.classList.remove(this.mocapsOldClassName);
+			if (this.mocapsOldClassName) prewiew.classList.remove(this.mocapsOldClassName);
 			prewiew.classList.add(className);
 			prewiew.querySelector('img').src = a;
 
@@ -810,9 +873,12 @@ var selectType = function () {
 				var _loop = function _loop(i) {
 					var a = _this2.mocapContainers[i].getAttribute(attr);
 					setTimeout(function () {
-						if (!!_this2.mocapsOldClassName) _this2.mocapContainers[i].classList.remove(_this2.mocapsOldClassName);
+						if (_this2.mocapsOldClassName) _this2.mocapContainers[i].classList.remove(_this2.mocapsOldClassName);
 						_this2.mocapContainers[i].classList.add(className);
 						_this2.mocapContainers[i].querySelector('img').src = a;
+						if (i == _this2.mocapContainers.length - 1) {
+							_this2.mocapsOldClassName = className;
+						}
 					}, c);
 					c += 50;
 				};
@@ -820,7 +886,6 @@ var selectType = function () {
 				for (var i = 0; i < _this2.mocapContainers.length; i++) {
 					_loop(i);
 				}
-				_this2.mocapsOldClassName = className;
 			}, 450);
 		}
 	}, {
@@ -984,6 +1049,65 @@ exports.default = selectType;
 
 "use strict";
 
+// version 0.0.0
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var clickStart = function () {
+	function clickStart(options) {
+		_classCallCheck(this, clickStart);
+
+		this.element = options.element || window;
+		this.callback = options.callback;
+
+		this.Listener();
+	}
+
+	_createClass(clickStart, [{
+		key: 'typeOfEvent',
+		value: function typeOfEvent() {
+			var event = void 0;
+			switch (null) {
+				case window.ontouchstart:
+					event = 'touchstart';
+					break;
+				case window.onmousedown:
+					event = 'mousedown';
+					break;
+				default:
+					throw new Error('Никакого события clickStart нету');
+			}
+			return event;
+		}
+	}, {
+		key: 'Listener',
+		value: function Listener() {
+			this.element.addEventListener(this.typeOfEvent(), this.callback);
+		}
+	}, {
+		key: 'end',
+		value: function end() {
+			this.element.removeEventListener(this.typeOfEvent(), this.callback);
+		}
+	}]);
+
+	return clickStart;
+}();
+
+exports.default = clickStart;
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -1030,12 +1154,16 @@ var configurator = function () {
 				_this.config.style.display = 'block';
 				_this.getValues();
 				_this.selectPrint.copyToConfig(event.currentTarget);
+				_this.selectPrint.moveConfig();
+				_this.selectPrint.moveToConfig();
 				_this.selectPrint.checkInputs();
 				_this.selectPrint.loadPrintDataInConfig();
 				_this.selectType.setTooltip();
-				_this.selectPrint.moveConfig();
-				_this.generatePrint.start();
-				_this.selectPrint.moveToConfig();
+				try {
+					_this.generatePrint.start();
+				} catch (e) {
+					console.log('Ошибка в генерации', e);
+				}
 			});
 		}
 	}
@@ -1129,66 +1257,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		console.log('В выборе принта ошибка.', err);
 	}
 });
-
-/***/ }),
-/* 5 */,
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-// version 0.0.0
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var clickStart = function () {
-	function clickStart(options) {
-		_classCallCheck(this, clickStart);
-
-		this.element = options.element || window;
-		this.callback = options.callback;
-
-		this.Listener();
-	}
-
-	_createClass(clickStart, [{
-		key: 'typeOfEvent',
-		value: function typeOfEvent() {
-			var event = void 0;
-			switch (null) {
-				case window.ontouchstart:
-					event = 'touchstart';
-					break;
-				case window.onmousedown:
-					event = 'mousedown';
-					break;
-				default:
-					throw new Error('Никакого события clickStart нету');
-			}
-			return event;
-		}
-	}, {
-		key: 'Listener',
-		value: function Listener() {
-			this.element.addEventListener(this.typeOfEvent(), this.callback);
-		}
-	}, {
-		key: 'end',
-		value: function end() {
-			this.element.removeEventListener(this.typeOfEvent(), this.callback);
-		}
-	}]);
-
-	return clickStart;
-}();
-
-exports.default = clickStart;
 
 /***/ })
 /******/ ]);

@@ -7,34 +7,12 @@
 }
 
 @font-face {
-	font-family: 'CampusGrav1';
-	src: url('../fonts/ACampusGrav/ACampusGrav.eot');
-	src: local('☺'), url('../fonts/ACampusGrav/ACampusGrav.woff') format('woff'), url('../fonts/ACampusGrav/ACampusGrav.ttf') format('truetype'), url('../fonts/ACampusGrav/ACampusGrav.svg') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
 	font-family: 'Droid';
 	src: url('../fonts/Droid/Droid.eot');
 	src: local('☺'), url('../fonts/Droid/Droid.woff') format('woff'), url('../fonts/Droid/Droid.ttf') format('truetype'), url('../fonts/Droid/Droid.svg') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
-@font-face {
-	font-family: 'CampusGrav';
-	src: url('../fonts/JACKPORT/JACKPORT.eot');
-	src: local('☺'), url('../fonts/JACKPORT/JACKPORT.woff') format('woff'), url('../fonts/JACKPORT/JACKPORT.ttf') format('truetype'), url('../fonts/JACKPORT/JACKPORT.svg') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-
-
-
-
-
-
 
 .mocapContainer {
 	position: relative;
@@ -89,8 +67,7 @@
 	opacity: .85;
 	font-family: 'Campus';
 }
-[data-mocap-number="13"] .mocapContainer__textContainer,
-.men[data-mocap-number="13"] .mocapContainer__textContainer {
+[data-mocap-number="13"] .mocapContainer__textContainer {
 	top: 22%;
 	padding-left: 4%;
 	box-sizing: border-box;
@@ -112,17 +89,28 @@
 	line-height: 1;
 }
 [data-mocap-number="13"] .printConfig__text2{
-	font-weight: 700;
-	font-size: 4.5em;
-	padding-top: .5em;
-	font-family: 'CampusGrav';
+	padding-top: 2.2em;
 }
 .woman-shirt[data-mocap-number="13"] .printConfig__text2{
-	padding-top: .44em;
+	padding-top: 1.84em;
 }
 .sweatshirt[data-mocap-number="13"] .printConfig__text2{
-	padding-top: .38em;
+	padding-top: 1.68em;
 }
+.hoodie[data-mocap-number="13"] .printConfig__text2{
+	padding-top: 2.1em;
+}
+
+[data-mocap-number="13"] .printConfig__text2 img{
+	height: 4em;
+	display: inline-block;
+	fill:#fff;
+}
+
+
+
+
+
 
 /**/
 [data-mocap-number="14"] {
@@ -134,8 +122,7 @@
 	opacity: .85;
 	font-family: 'Campus';
 }
-[data-mocap-number="14"] .mocapContainer__textContainer,
-.men[data-mocap-number="14"] .mocapContainer__textContainer {
+[data-mocap-number="14"] .mocapContainer__textContainer {
 	top: 22%;
 	padding-left: 4%;
 	box-sizing: border-box;
@@ -157,64 +144,22 @@
 	line-height: 1;
 }
 [data-mocap-number="14"] .printConfig__text2{
-	font-weight: 700;
-	font-size: 4.5em;
-	padding-top: .5em;
-	font-family: 'CampusGrav';
+	padding-top: 2.2em;
 }
 .woman-shirt[data-mocap-number="14"] .printConfig__text2{
-	padding-top: .44em;
+	padding-top: 1.84em;
 }
 .sweatshirt[data-mocap-number="14"] .printConfig__text2{
-	padding-top: .38em;
+	padding-top: 1.68em;
+}
+.hoodie[data-mocap-number="14"] .printConfig__text2{
+	padding-top: 2.1em;
 }
 
-
-
-
-/**/
-[data-mocap-number="14"] {
-	text-align: center;
-	color: #000;
-	font-size: 5px;
-}
-[data-mocap-number="14"] .mocapContainer__textContainer {
-	opacity: .85;
-	font-family: 'Campus';
-}
-[data-mocap-number="14"] .mocapContainer__textContainer,
-.men[data-mocap-number="14"] .mocapContainer__textContainer {
-	top: 22%;
-	padding-left: 4%;
-	box-sizing: border-box;
-}
-.woman-shirt[data-mocap-number="14"] .mocapContainer__textContainer {
-    top: 26%;
-	padding-left: 4%;
-}
-.sweatshirt[data-mocap-number="14"] .mocapContainer__textContainer {
-    top: 25%;
-	padding-left: 2%;
-}
-.hoodie[data-mocap-number="14"] .mocapContainer__textContainer {
-    top: 26%;
-    padding-left: 1%;
-}
-
-[data-mocap-number="14"] .mocapContainer__textContainer span {
-	line-height: 1;
-}
-[data-mocap-number="14"] .printConfig__text2{
-	font-weight: 700;
-	font-size: 4.5em;
-	padding-top: .5em;
-	font-family: 'CampusGrav';
-}
-.woman-shirt[data-mocap-number="14"] .printConfig__text2{
-	padding-top: .44em;
-}
-.sweatshirt[data-mocap-number="14"] .printConfig__text2{
-	padding-top: .38em;
+[data-mocap-number="14"] .printConfig__text2 img{
+	height: 4em;
+	display: inline-block;
+	fill:#fff;
 }
 
 
