@@ -330,12 +330,17 @@ var generateCanvasImage = function () {
 		key: 'setText',
 		value: function setText(elem, elemC, text) {
 			var styles = getComputedStyle(elem);
+			var span = elem.querySelector('span');
+			if (span) {
+				var stylesSpan = getComputedStyle(span);
+				var spanC = this.Coordinates(span);;
+			}
 
 			var paddingOuter = parseInt(getComputedStyle(this.itemTextContainer).paddingLeft);
 			var paddingInner = parseInt(styles.paddingLeft);
 			var paddingInnerTop = parseInt(styles.paddingTop);
 
-			var top = (elemC.top - this.mocapContainerC.top + paddingInnerTop) * this.precent;
+			var top = ((spanC && spanC.top || elemC.top) - this.mocapContainerC.top + paddingInnerTop) * this.precent;
 			var left = (elemC.left - this.mocapContainerC.left + paddingOuter + paddingInner) * this.precent;
 
 			this.ctx.textAlign = 'left';
@@ -345,6 +350,7 @@ var generateCanvasImage = function () {
 				var textShadow = styles.textShadow.split(')');
 				textShadow = [textShadow[0] + ')', textShadow[1].split(' ')[1], textShadow[1].split(' ')[2], textShadow[1].split(' ')[3]];
 				this.ctx.shadowColor = textShadow[0];
+
 				this.ctx.shadowOffsetX = parseInt(textShadow[1]) * this.precent / 3;
 				this.ctx.shadowOffsetY = parseInt(textShadow[2]) * this.precent / 3;
 				this.ctx.shadowBlur = parseInt(textShadow[3]) * this.precent / 3;
@@ -357,7 +363,8 @@ var generateCanvasImage = function () {
 				left = (elemC.right - this.mocapContainerC.left + paddingOuter + paddingInner) * this.precent;
 			}
 
-			this.ctx.font = styles.fontWeight + ' ' + +styles.fontSize.split('').splice(0, styles.fontSize.length - 2).join('') * this.precent + 'px/' + parseInt(styles.lineHeight) * this.precent + 'px ' + styles.fontFamily;
+			//this.ctx.font = styles.fontWeight + ' ' + +(styles.fontSize.split('').splice(0,styles.fontSize.length-2).join(''))*this.precent + 'px/' + parseInt(styles.lineHeight)*this.precent + 'px ' + styles.fontFamily;
+			this.ctx.font = styles.fontWeight + ' ' + +(span && stylesSpan.fontSize.slice(0, -2) || styles.fontSize.slice(0, -2)) * this.precent + 'px/' + parseInt(styles.lineHeight) * this.precent + 'px ' + styles.fontFamily;
 			this.ctx.letterSpacing = parseInt(styles.letterSpacing) * this.precent + 'px';
 
 			if (!text) text = elem.innerHTML;
@@ -436,6 +443,7 @@ var inputsForMocaps = function () {
 	_createClass(inputsForMocaps, [{
 		key: 'callback',
 		value: function callback() {
+
 			this.father.generatePrint.start();
 		}
 	}, {
@@ -449,9 +457,85 @@ var inputsForMocaps = function () {
 				//transformValueCode
 
 
+				//transformValueCode
+
+
+				var _loop = function _loop() {
+					if (!value) value = text[i].getAttribute('data-shadow-text') || 'Антон';
+					text[i].querySelector('span').innerHTML = value;
+
+					//transformValueCode
+					fontSizeEm = 1;
+					mocap = text[i].closest('.mocapContainer');
+					span = text[i].querySelector('span');
+					mocapWidth = parseInt(getComputedStyle(mocap).width);
+
+					widthFont();
+					function widthFont(param) {
+
+						var spanWidth = span.getBoundingClientRect().right - span.getBoundingClientRect().left;
+
+						switch (true) {
+							case spanWidth / mocapWidth > 0.42:
+
+								fontSizeEm -= 0.025;
+								span.style.fontSize = fontSizeEm + 'em';
+								widthFont('maxSymbols');
+
+								break;
+
+							// case (spanWidth/mocapWidth < 0.26 && span.innerHTML.length >= 3):
+							//
+							// 	fontSizeEm += 0.025 ;
+							// 	span.style.fontSize = fontSizeEm + 'em';
+							// 	widthFont('minSymbols');
+							//
+							// 	break;
+
+
+							case spanWidth / mocapWidth < 0.42:
+
+								if (param === 'maxSymbols' || param === 'minSymbols') return;
+								if (span.style.fontSize) {
+									span.style.fontSize = '';
+									fontSizeEm = 1;
+									widthFont();
+								}
+
+								break;
+							default:
+
+						}
+						// if (spanWidth/mocapWidth > 0.42 ) {
+						// 	fontSizeEm -= 0.005 ;
+						// 	span.style.fontSize = fontSizeEm + 'em';
+						// 	widthFont(true);
+						// } else if (spanWidth/mocapWidth < 0.42){
+						//
+						// 	if (param === true) return;
+						//
+						// 	if (span.style.fontSize) {
+						// 		span.style.fontSize = '';
+						// 		fontSizeEm = 1;
+						// 		widthFont();
+						// 	} else {
+						// 		fontSizeEm = 1;
+						// 		return;
+						// 	}
+						//
+						// }
+					}
+
+					//transformValueCode
+				};
+
 				for (var i = 0; i < text.length; i++) {
-					if (!value) value = text[i].getAttribute('data-shadow-text');
-					text[i].innerHTML = value;
+					var fontSizeEm;
+					var mocap;
+					var span;
+					var mocapWidth;
+
+					_loop();
 				}
 			}
 
@@ -494,13 +578,13 @@ var inputsForMocaps = function () {
 					var link = image.getAttribute('src');
 					link = link.slice(0, -5);
 
-					if (value.length === 1) {
+					if (value && value.length === 1) {
 
 						if (secondImage) secondImage.remove();
 					} else {
 
 						if (!secondImage) secondImage = new Image();
-						textBlock.append(secondImage);
+						textBlock.querySelector('span').append(secondImage);
 					}
 
 					for (var i = 0; i < value.length; i++) {
@@ -516,11 +600,10 @@ var inputsForMocaps = function () {
 
 				for (var i = 0; i < text.length; i++) {
 					var textValue = void 0;
-					if (!value) {
-						textValue = text[i].getAttribute('data-shadow-text') || '87';
-					} else {
+
+					if (value) {
 						value = value.split('').filter(function (item) {
-							return Number.isInteger(parseInt(item));
+							return !isNaN(parseInt(item));
 						}).join('');
 
 						if (value.length > 2) value = value.slice(0, 2);
@@ -528,11 +611,17 @@ var inputsForMocaps = function () {
 						_this.mocapInput2.value = value;
 					}
 
+					if (!value) {
+						textValue = text[i].getAttribute('data-shadow-text') || '87';
+					}
+
 					if (svgTextForMoc13and14(text[i], value || textValue)) continue;
 
 					text[i].innerHTML = value || textValue;
 				}
 			}
+			//transformValueCode
+
 
 			this.mocapInput2.addEventListener('keyup', function (event) {
 				var a = event.currentTarget.value;
@@ -637,6 +726,9 @@ var inputsForMocaps = function () {
 
 			window.addEventListener("DOMContentLoaded", windowLoadHandler, false);
 		}
+	}, {
+		key: 'textTransformForManySymbols',
+		value: function textTransformForManySymbols() {}
 	}]);
 
 	return inputsForMocaps;
@@ -683,29 +775,91 @@ var selectPrint = function () {
 	}, {
 		key: 'checkInputs',
 		value: function checkInputs() {
+			var shadowText = void 0,
+			    label = void 0,
+			    input = void 0;
 
+			input = this.father.inputs.mocapInput4;
 			if (!this.newElement.querySelector('.mocapContainer__imageContainer')) {
-				this.father.inputs.mocapInput4.disabled = true;
-			} else {
-				this.father.inputs.mocapInput4.disabled = false;
-			}
+				input.disabled = true;
+				input.closest('[data-style="inputText"]').style.display = 'none';
 
+				shadowText = input.nextElementSibling.getAttribute('data-shadow-label');
+				if (!shadowText) shadowText = 'Фото';
+
+				input.nextElementSibling.innerHTML = shadowText;
+			} else {
+				input.disabled = false;
+				input.closest('[data-style="inputText"]').style.display = '';
+
+				shadowText = this.newElement.querySelector('.mocapContainer__imageContainer').getAttribute('data-shadow-label');
+				if (!shadowText) shadowText = input.nextElementSibling.getAttribute('data-shadow-label');
+				if (!shadowText) shadowText = 'Фото';
+
+				input.nextElementSibling.innerHTML = shadowText;
+			}
+			shadowText = null;
+
+			input = this.father.inputs.mocapInput1;
 			if (!this.newElement.querySelector('.printConfig__text1')) {
-				this.father.inputs.mocapInput1.disabled = true;
-			} else {
-				this.father.inputs.mocapInput1.disabled = false;
-			}
+				input.disabled = true;
+				input.closest('[data-style="inputText"]').style.display = 'none';
 
+				shadowText = input.nextElementSibling.getAttribute('data-shadow-label');
+				if (!shadowText) shadowText = 'Надпись 1';
+
+				input.nextElementSibling.innerHTML = shadowText;
+			} else {
+				input.disabled = false;
+				input.closest('[data-style="inputText"]').style.display = '';
+
+				shadowText = this.newElement.querySelector('.printConfig__text1').getAttribute('data-shadow-label');
+				if (!shadowText) shadowText = input.nextElementSibling.getAttribute('data-shadow-label');
+				if (!shadowText) shadowText = 'Надпись 1';
+
+				input.nextElementSibling.innerHTML = shadowText;
+			}
+			shadowText = null;
+
+			input = this.father.inputs.mocapInput2;
 			if (!this.newElement.querySelector('.printConfig__text2')) {
-				this.father.inputs.mocapInput2.disabled = true;
-			} else {
-				this.father.inputs.mocapInput2.disabled = false;
-			}
+				input.disabled = true;
+				input.closest('[data-style="inputText"]').style.display = 'none';
 
-			if (!this.newElement.querySelector('.printConfig__text3')) {
-				this.father.inputs.mocapInput3.disabled = true;
+				shadowText = input.nextElementSibling.getAttribute('data-shadow-label');
+				if (!shadowText) shadowText = 'Надпись 2';
+
+				input.nextElementSibling.innerHTML = shadowText;
 			} else {
-				this.father.inputs.mocapInput3.disabled = false;
+				input.disabled = false;
+				input.closest('[data-style="inputText"]').style.display = '';
+
+				shadowText = this.newElement.querySelector('.printConfig__text2').getAttribute('data-shadow-label');
+				if (!shadowText) shadowText = input.nextElementSibling.getAttribute('data-shadow-label');
+				if (!shadowText) shadowText = 'Надпись 2';
+
+				input.nextElementSibling.innerHTML = shadowText;
+			}
+			shadowText = null;
+
+			input = this.father.inputs.mocapInput3;
+			if (!this.newElement.querySelector('.printConfig__text3')) {
+				input.disabled = true;
+				input.closest('[data-style="inputText"]').style.display = 'none';
+
+				shadowText = input.nextElementSibling.getAttribute('data-shadow-label');
+				if (!shadowText) shadowText = 'Надпись 3';
+
+				input.nextElementSibling.innerHTML = shadowText;
+			} else {
+				input.disabled = false;
+				input.closest('[data-style="inputText"]').style.display = '';
+
+				shadowText = this.newElement.querySelector('.printConfig__text3').getAttribute('data-shadow-label');
+				if (!shadowText) shadowText = input.nextElementSibling.getAttribute('data-shadow-label');
+				if (!shadowText) shadowText = 'Надпись 3';
+
+				input.nextElementSibling.innerHTML = shadowText;
 			}
 		}
 	}, {
@@ -797,6 +951,7 @@ var selectType = function () {
 		_classCallCheck(this, selectType);
 
 		this.father = father;
+		this.father.getValues();
 
 		this.genderInputs = document.querySelectorAll('input[name="genderRadio"]');
 		this.productTypeInputs = document.querySelectorAll('input[name="productType"]');
@@ -821,14 +976,14 @@ var selectType = function () {
 			this.genderValue = this.father.genderValue;
 			this.productTypeValue = this.father.productTypeValue;
 
-			this.mocapContainers = document.querySelectorAll('.mocapContainer');
+			this.mocapContainers = document.querySelectorAll('.yourPrint__item .mocapContainer');
 
 			var a = void 0;
 
 			if (this.productTypeValue === 'shirt') {
 				if (this.genderValue === 'woman' || this.genderValue === 'girl') {
 					a = 'woman-';
-					//если выбраны дамы или девочки, 
+					//если выбраны дамы или девочки,
 				} else {
 					a = 'men-';
 				}
@@ -849,6 +1004,7 @@ var selectType = function () {
 			this.setPriceDescription();
 			this.setSizes();
 			this.setTooltip();
+			this.father.backSideIndicationConfig();
 			this.father.generatePrint.start();
 		}
 	}, {
@@ -876,6 +1032,7 @@ var selectType = function () {
 						if (_this2.mocapsOldClassName) _this2.mocapContainers[i].classList.remove(_this2.mocapsOldClassName);
 						_this2.mocapContainers[i].classList.add(className);
 						_this2.mocapContainers[i].querySelector('img').src = a;
+						_this2.father.backSideIndicationPrint(_this2.mocapContainers[i]);
 						if (i == _this2.mocapContainers.length - 1) {
 							_this2.mocapsOldClassName = className;
 						}
@@ -891,8 +1048,9 @@ var selectType = function () {
 	}, {
 		key: 'setPriceDescription',
 		value: function setPriceDescription() {
-			var gender = document.querySelector('.printConfig__options-priceGender');
-			var product = document.querySelector('.printConfig__options-priceType');
+			var gender = this.father.config.querySelector('.printConfig__options-priceGender');
+			var product = this.father.config.querySelector('.printConfig__options-priceType');
+
 			switch (this.productTypeValue) {
 				case 'shirt':
 
@@ -1141,11 +1299,17 @@ var configurator = function () {
 		this.buttonOneClick = this.config.querySelector('.js-btn-oneClick');
 		this.buttonBuy = this.config.querySelector('.js-buy');
 		this.prints = document.querySelectorAll('.yourPrint__item');
+		this.getValues();
+		this.setCatalogPrices();
 
 		this.inputs = new _inputsForMocaps2.default(this);
 		this.selectType = new _selectType2.default(this);
 		this.selectPrint = new _selectPrint2.default(this);
 		this.generatePrint = new _generDev2.default(this);
+
+		this.selectType.productTypeValue = this.productTypeValue;
+		this.selectType.genderValue = this.genderValue;
+		this.selectType.setPriceDescription();
 
 		for (var i = 0; i < this.prints.length; i++) {
 
@@ -1159,12 +1323,15 @@ var configurator = function () {
 				_this.selectPrint.checkInputs();
 				_this.selectPrint.loadPrintDataInConfig();
 				_this.selectType.setTooltip();
+				_this.backSideIndicationConfig();
 				try {
 					_this.generatePrint.start();
 				} catch (e) {
 					console.log('Ошибка в генерации', e);
 				}
 			});
+
+			this.backSideIndicationPrint(this.prints[i].querySelector('.mocapContainer'));
 		}
 	}
 
@@ -1177,9 +1344,9 @@ var configurator = function () {
 			this.config.querySelector('.printConfig__options-price').innerHTML = price;
 
 			var oldPrice = void 0;
-			if (mocap.hasAttribute('data-' + this.productTypeValue + '-oldPrice')) {
+			if (mocap.hasAttribute('data-' + this.productTypeValue + '-oldprice')) {
 				//если есть старая цена, то выводим
-				oldPrice = mocap.getAttribute('data-' + this.productTypeValue + '-oldPrice');
+				oldPrice = mocap.getAttribute('data-' + this.productTypeValue + '-oldprice');
 				this.config.querySelector('.printConfig__options-price').insertAdjacentHTML('afterbegin', '<span class="yourPrint__item-oldPrice">' + oldPrice + ' </span>');
 			}
 
@@ -1198,9 +1365,9 @@ var configurator = function () {
 				this.prints[i].querySelector('.yourPrint__item-price').innerHTML = price;
 
 				var oldPrice = void 0;
-				if (mocap.hasAttribute('data-' + this.productTypeValue + '-oldPrice')) {
+				if (mocap.hasAttribute('data-' + this.productTypeValue + '-oldprice')) {
 					//если есть старая цена, то выводим
-					oldPrice = mocap.getAttribute('data-' + this.productTypeValue + '-oldPrice');
+					oldPrice = mocap.getAttribute('data-' + this.productTypeValue + '-oldprice');
 					this.prints[i].querySelector('.yourPrint__item-price').insertAdjacentHTML('afterbegin', '<span class="yourPrint__item-oldPrice">' + oldPrice + ' </span>');
 				}
 			}
@@ -1221,7 +1388,7 @@ var configurator = function () {
 				if (this.genderValue === 'woman' || this.genderValue === 'girl') {
 					a = 'woman-';
 					sex = 1;
-					//если выбраны дамы или девочки, 
+					//если выбраны дамы или девочки,
 				} else {
 					a = 'men-';
 				}
@@ -1238,6 +1405,59 @@ var configurator = function () {
 
 			this.buttonOneClick.setAttribute('data-sex', sex);
 			this.buttonBuy.setAttribute('data-sex', sex);
+		}
+	}, {
+		key: 'backSideIndicationPrint',
+		value: function backSideIndicationPrint(mocap) {
+			if (!mocap.closest('.yourPrint__item').querySelector('.yourPrint__item-back')) return;
+
+			var a = void 0;
+
+			if (this.productTypeValue === 'shirt') {
+				if (this.genderValue === 'woman' || this.genderValue === 'girl') {
+					a = 'woman-';
+
+					//если выбраны дамы или девочки,
+				} else {
+					a = 'men-';
+				}
+			} else {
+				a = '';
+			}
+
+			if (mocap.hasAttribute('data-' + a + this.productTypeValue + '-back')) {
+				mocap.closest('.yourPrint__item').querySelector('.yourPrint__item-back').style.display = 'block';
+			} else {
+				// this.config.querySelector('.printConfig__preview-back').style.display = 'none';
+				mocap.closest('.yourPrint__item').querySelector('.yourPrint__item-back').style.display = 'none';
+			}
+		}
+	}, {
+		key: 'backSideIndicationConfig',
+		value: function backSideIndicationConfig() {
+			var prewiew = this.config.querySelector('.printConfig__preview .mocapContainer');
+			this.backSideIndicationPrint(this.selectPrint.print.querySelector('.mocapContainer'));
+
+			var g = void 0;
+
+			if (this.productTypeValue === 'shirt') {
+				if (this.genderValue === 'woman' || this.genderValue === 'girl') {
+					g = 'woman-';
+
+					//если выбраны дамы или девочки,
+				} else {
+					g = 'men-';
+				}
+			} else {
+				g = '';
+			}
+
+			if (prewiew.hasAttribute('data-' + g + this.productTypeValue + '-back')) {
+				prewiew.closest('.printConfig__preview').querySelector('.printConfig__preview-back').style.display = 'block';
+			} else {
+				// this.config.querySelector('.printConfig__preview-back').style.display = 'none';
+				prewiew.closest('.printConfig__preview').querySelector('.printConfig__preview-back').style.display = 'none';
+			}
 		}
 	}, {
 		key: 'getValues',

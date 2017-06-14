@@ -20,7 +20,24 @@
 	border-radius: 3px;
 	font-size: 16px;
 	cursor: pointer;
-	vertical-align: middle;
+	vertical-align: top;
+}
+.yourPrint__item-back {
+	display: none;
+	right: 0;
+	left: 0;
+	top: 0px;
+	background: rgba(0, 0, 0, 0.04);
+	width: 60%;
+	margin: auto;
+	border-radius: 0 0 31px 31px;
+	padding: 6px 13px;
+	font:400 16px/normal "PT Sans";
+	line-height: 1.5em;
+	position: absolute;
+	text-align: center;
+	color: rgb(174, 170, 175);
+	z-index: 3;
 }
 .yourPrint__item:hover {
 	box-shadow: 0 15px 15px 0 rgba(0, 0, 0, 0.15);
@@ -77,10 +94,10 @@
 }
 
 .yourPrint__item-imageContainer {
-	padding:16px;
+    padding:24px 16px 16px;
 }
 .yourPrint__item-imageContainer .mocapContainer > img{
-	max-width: 240px; 
+	max-width: 240px;
 	max-height: 245px;
 }
 .yourPrint__item-contentContainer {
@@ -128,7 +145,7 @@
 	box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.15);
 }
 @media screen and (max-width: 1200px) {
-	
+
 .wrapLine--helper:nth-of-type(4n) {
 	display: none;
 }
@@ -147,8 +164,8 @@
 
 .wrapLine--helper:nth-of-type(2n) {
 	display: block;
-}  
-    
+}
+
 
 }
 @media screen and (max-width: 720px) {
@@ -158,6 +175,6 @@
 
 .wrapLine--helper:nth-of-type(n) {
 	display: block;
-} 
+}
 
 }

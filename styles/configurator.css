@@ -18,7 +18,23 @@
 	position: relative;
 	font-size: 0;
 }
-
+.printConfig__preview-back {
+	display: none;
+	right: 0;
+	left: 0;
+	top: 0px;
+	background: rgba(0, 0, 0, 0.04);
+	width: 50%;
+	margin: auto;
+	border-radius: 0 0 31px 31px;
+	padding: 6px 13px;
+	font:400 16px/normal "PT Sans";
+	line-height: 1.5em;
+	position: absolute;
+	text-align: center;
+	color: rgb(174, 170, 175);
+	z-index: 3;
+}
 
 .mocapContainer__textContainer {
 	font-size: 2.85em;
@@ -99,7 +115,7 @@
     position: relative;
 }
 .printConfig__options-gender label {
-	
+
 }
 .printConfig__options-slider{
 	z-index: 1;
@@ -246,7 +262,7 @@
 }
 .printConfig__options-sizesGrid .js-size-button span{
 	display: block;
-	
+
 }
 .printConfig__options-productSize.slideStyleRadioButton label {
 	line-height:35px;
@@ -394,7 +410,7 @@
 }
 .printConfig__options-priceBlock {
 	font-size: 0;
-	padding: 10px 0; 
+	padding: 10px 0;
 }
 .printConfig__options-priceText {
 	width: 269px;
@@ -459,7 +475,7 @@
     .printConfig__preview-text span {
     	display: none;
     }
-    
+
 	.printConfig__options-sizesGrid {
 		width: 93%;
     	-webkit-transform: translate(0,0);
@@ -468,7 +484,7 @@
     	display: block;
     	text-align: center;
     }
-    
+
 	.printConfig__options-sizesGrid .js-size-button span{
 		display: inline;
 		-webkit-transform: translateY(0);
@@ -477,7 +493,7 @@
 
 }
 @media screen and (max-width: 960px) {
-    
+
     .printConfig__preview {
     	display: none;
     }
@@ -541,7 +557,7 @@
 	}
 }
 @media screen and (max-width: 720px) {
-    
+
 
 }
 @media screen and (max-width: 480px) {
@@ -583,4 +599,3 @@
 		float: none;
 	}
 }
-

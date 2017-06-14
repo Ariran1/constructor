@@ -73,11 +73,11 @@
 	box-sizing: border-box;
 }
 .woman-shirt[data-mocap-number="13"] .mocapContainer__textContainer {
-    top: 26%;
-	padding-left: 4%;
+    top: 24%;
+    padding-left: 4%;
 }
 .sweatshirt[data-mocap-number="13"] .mocapContainer__textContainer {
-    top: 25%;
+    top: 23%;
 	padding-left: 2%;
 }
 .hoodie[data-mocap-number="13"] .mocapContainer__textContainer {
@@ -88,17 +88,20 @@
 [data-mocap-number="13"] .mocapContainer__textContainer span {
 	line-height: 1;
 }
+[data-mocap-number="13"] span.printConfig__text1 {
+	font-size: 1.6em;
+}
 [data-mocap-number="13"] .printConfig__text2{
-	padding-top: 2.2em;
+    padding-top: 1.6em;
 }
 .woman-shirt[data-mocap-number="13"] .printConfig__text2{
-	padding-top: 1.84em;
+    padding-top: 1.61em;
 }
 .sweatshirt[data-mocap-number="13"] .printConfig__text2{
-	padding-top: 1.68em;
+    padding-top: 1.38em;
 }
 .hoodie[data-mocap-number="13"] .printConfig__text2{
-	padding-top: 2.1em;
+    padding-top: 1.5em;
 }
 
 [data-mocap-number="13"] .printConfig__text2 img{
@@ -132,7 +135,7 @@
 	padding-left: 4%;
 }
 .sweatshirt[data-mocap-number="14"] .mocapContainer__textContainer {
-    top: 25%;
+    top: 23%;
 	padding-left: 2%;
 }
 .hoodie[data-mocap-number="14"] .mocapContainer__textContainer {
@@ -143,17 +146,20 @@
 [data-mocap-number="14"] .mocapContainer__textContainer span {
 	line-height: 1;
 }
+[data-mocap-number="14"] span.printConfig__text1 {
+	font-size: 1.6em;
+}
 [data-mocap-number="14"] .printConfig__text2{
-	padding-top: 2.2em;
+    padding-top: 1.6em;
 }
 .woman-shirt[data-mocap-number="14"] .printConfig__text2{
-	padding-top: 1.84em;
+    padding-top: 1.61em;
 }
 .sweatshirt[data-mocap-number="14"] .printConfig__text2{
-	padding-top: 1.68em;
+    padding-top: 1.38em;
 }
 .hoodie[data-mocap-number="14"] .printConfig__text2{
-	padding-top: 2.1em;
+    padding-top: 1.5em;
 }
 
 [data-mocap-number="14"] .printConfig__text2 img{
@@ -428,5 +434,3 @@
 	font-weight: 700;
 	font-size: 5.5em;
 }
-
-
